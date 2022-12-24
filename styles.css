@@ -1,0 +1,246 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500&display=swap');
+
+:root{
+    /* FONTS */ 
+    --font-family-rubik:'Rubik', sans-serif;
+    --font-size-body: 18px;
+    --font-weight-light: 300;
+    --font-weight-regular: 400;
+    --font-weight-medium: 500;
+
+    /* COLORS */
+    --primary-blue: hsl(246, 80%, 60%);
+
+    --orange: hsl(15, 100%, 70%);
+    --soft-blue: hsl(195, 74%, 62%); /*(play)*/
+    --light-red: hsl(348, 100%, 68%);/*study*/
+    --lime-green: hsl(145, 58%, 55%);/*exercise*/
+    --violet: hsl(264, 64%, 52%);/*social*/
+    --soft-orange: hsl(43, 84%, 65%);/*self care*/
+
+    --very-dark-blue: hsl(226, 43%, 10%);
+    --dark-blue: hsl(235, 46%, 20%);
+    --desaturated-blue: hsl(235, 45%, 61%);
+    --pale-blue: hsl(236, 100%, 87%);
+}
+
+*,*::after,*::before{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: var(--font-family-rubik);
+}
+
+body{
+    max-width: 100vw;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color:var(--very-dark-blue);
+}
+
+main aside{
+    background-color:var(--dark-blue);
+    border-radius:1rem;
+}
+main aside .container-top{
+    background-color:var(--primary-blue);
+    display: flex;
+    padding:2rem;
+    border-radius:1rem;
+}
+main aside .container-top .image-aside{
+    border:3px solid white;
+    border-radius:50%;
+}
+main aside .container-top .description{
+    font-weight:var(--font-weight-medium);
+}
+main aside .container-top .title{
+    color:var(--pale-blue);
+    font-weight:var(--font-weight-regular);
+}
+
+main aside .container-bottom{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+main aside .container-bottom button{
+    background:none;
+    border:none;
+    color:var(--desaturated-blue);
+    font-size:var(--font-size-body);
+    cursor:pointer;
+}
+main aside .container-bottom button:focus{
+    color:var(--pale-blue);
+    outline:none;
+}
+
+section{
+    position: relative;
+    z-index:-2;
+    border-radius:1rem;
+    overflow: hidden;
+}
+section img.image-bg{
+    position: absolute;
+    z-index:-1;
+    top: -0.7rem;
+    right:1rem;
+}
+section .container-fg{
+    padding:1.8rem 1.5rem;
+    background-color: var(--dark-blue);
+    border-radius:1rem;
+    display: flex;
+    flex-direction: column;
+}
+section .container-fg .subtitle{
+    font-size:var(--font-size-body);
+    color:var(--pale-blue);
+    font-weight:var(--font-weight-medium);
+}
+
+section .container-fg .top, section .container-fg .bottom{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+section .container-fg .hours{
+    color:var(--pale-blue);
+}
+section .container-fg .previous-hours{
+    color:var(--desaturated-blue);
+    font-size:15px;
+    font-weight:var(--font-weight-medium);
+}
+
+@media(max-width:1199px){
+    main{
+        width:325px;
+        margin-top:5rem;
+        margin-bottom:4.5rem;
+        display: flex;
+        flex-direction: column;
+        gap:1.5rem;
+    }
+
+    main aside{
+        width:100%;
+    }
+    main aside .container-top{
+        align-items: center;
+        gap:1rem;
+    }
+    main aside .container-top .image-aside{
+        width:4.5rem;
+    }
+    main aside .container-top .description{
+        color: var(--desaturated-blue);
+        font-size:14px;
+    }
+    main aside .container-top .title{
+        font-size:23px; 
+    }
+    main aside .container-bottom{
+        padding:1.5rem 0;
+    }
+
+    section{
+        width:100%;
+        padding-top:2.4rem;
+    }
+    section .container-fg{
+        gap:0.5rem;
+    }
+    section .container-fg .hours{
+        font-size:30px;
+        font-weight: var(--font-weight-regular);
+    }
+
+}
+@media(min-width:1200px){
+    main{
+        z-index:0;
+        width:1120px;
+        display:grid;
+        /* Makes the aside take 2 spaces on the Y axis*/
+        grid-template: 'longAside . . .' 'longAside . . .';
+        grid-gap:2rem;
+    }
+
+    main aside, main section{
+        width:255px;
+    }
+    main aside{
+        grid-area: longAside;
+    }
+    main aside .container-top{
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    main aside .container-top .image-aside{
+        width:5.2rem;
+        margin-bottom:2.5rem;
+    }
+    main aside .container-top .description{
+        font-size:16px;
+        color:var(--pale-blue);
+        opacity:0.6;
+    }
+    main aside .container-top .title{
+        font-size:40px;
+        font-weight:var(--font-weight-light);
+        margin-top:0.2rem;
+        margin-bottom: 3rem;
+    }
+    main aside .container-bottom{
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 1.5rem 2rem 2rem 2rem;
+        gap:1.5rem;
+    }
+    main aside .container-bottom button{
+        transition: 0.25s ease-out;
+    }
+    main aside .container-bottom button:hover{
+        color:var(--pale-blue);
+    }
+
+    section{
+        padding-top:3rem;
+    }
+    section .container-fg{
+        padding-left:2rem;
+        padding-right:2rem;
+        gap: 1.5rem;
+        transition:0.3s ease;
+        cursor:pointer;
+    }
+    section .container-fg:hover{
+        filter:brightness(1.5);
+    }
+    section .container-fg .top .image-ellipsis{
+        cursor:pointer;
+        filter:brightness(1);
+        transition: all 0.3s ease;
+    }
+    section .container-fg .top .image-ellipsis:hover{
+        filter:brightness(2);
+    }
+    section .container-fg .bottom{
+        flex-direction: column;
+        align-items: flex-start;
+        gap:0.6rem;
+    }
+    section .container-fg .hours{
+        font-size: 56px;
+        font-weight:var(--font-weight-light);
+    }
+
+
+}
